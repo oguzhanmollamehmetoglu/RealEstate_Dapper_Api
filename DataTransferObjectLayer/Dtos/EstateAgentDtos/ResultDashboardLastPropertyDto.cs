@@ -8,6 +8,8 @@
 
         public string SlugUrl { get; set; }
 
+        public string Coverİmage { get; set; }
+
         public decimal Price { get; set; }
 
         public string City { get; set; }

@@ -151,7 +151,7 @@ namespace DataAccessLayer.Repository
 
         public async Task<Property> GetPropertyByPropertyId(int id)
         {
-            string query = "Select PropertyID,Title,Price,City,District,Type,Coverİmage,Address,CategoryName,DealOfTheDay,AdvertisementDate,Description,SlugUrl From Property inner join Category on Property.PropertyCategory=Category.CategoryID where PropertyID=@propertyId";
+            string query = "Select PropertyID,Title,Price,City,District,Type,Coverİmage,Address,CategoryName,AppUserID,DealOfTheDay,AdvertisementDate,Description,SlugUrl From Property inner join Category on Property.PropertyCategory=Category.CategoryID where PropertyID=@propertyId";
             var parameters = new DynamicParameters();
             parameters.Add("@propertyId", id);
             using (var connection = _context.CreateConnection())
@@ -187,7 +187,7 @@ namespace DataAccessLayer.Repository
 
         public async Task<List<Property>> GetResultPropertyWithCategoryStatusByTrueAsync()
         {
-            string query = "SELECT p.PropertyID, p.Title, p.Price, p.City, p.District, p.Type, p.Coverİmage, p.Address, c.CategoryName, p.DealOfTheDay, p.SlugUrl, p.PropertyStatus FROM Property p INNER JOIN Category c ON p.PropertyCategory = c.CategoryID Where PropertyStatus=1";
+            string query = "SELECT p.PropertyID, p.Title, p.Price, p.City, p.District, p.Type, p.Coverİmage, p.Address, c.CategoryName, p.AppUserID, p.DealOfTheDay, p.SlugUrl, p.PropertyStatus FROM Property p INNER JOIN Category c ON p.PropertyCategory = c.CategoryID Where PropertyStatus=1";
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryAsync<Property>(query);

@@ -16,7 +16,7 @@ namespace DataAccessLayer.Repository.EstateAgentRepository.DashboardRepository.L
 
         public async Task<List<ResultDashboardLastPropertyDto>> GetLastFivePropertyAsync(int id)
         {
-            string query = "Select Top(5) PropertyID,Title,SlugUrl,Price,City,District,PropertyCategory,CategoryName,AdvertisementDate From Property Inner Join Category On Property.PropertyCategory=Category.CategoryID Where AppUserID=@appUserID and PropertyStatus=1 Order By PropertyID Desc";
+            string query = "Select Top(5) PropertyID,Title,SlugUrl,Coverİmage,Price,City,District,PropertyCategory,CategoryName,AdvertisementDate From Property Inner Join Category On Property.PropertyCategory=Category.CategoryID Where AppUserID=@appUserID and PropertyStatus=1 Order By PropertyID Desc";
             var parameters = new DynamicParameters();
             parameters.Add("@appUserID", id);
             using (var connection = _context.CreateConnection())

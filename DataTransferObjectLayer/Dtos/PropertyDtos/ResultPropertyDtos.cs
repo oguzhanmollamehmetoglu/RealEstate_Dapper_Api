@@ -3,6 +3,7 @@
     public class ResultPropertyDtos
     {
         public int PropertyID { get; set; }
+        public int AppUserID { get; set; }
         public string Title { get; set; }
         public string SlugUrl { get; set; }
         public decimal Price { get; set; }
