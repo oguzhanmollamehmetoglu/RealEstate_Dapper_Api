@@ -11,7 +11,7 @@ namespace DataAccessLayer.Abstract
 
         Task DeleteProperty(int id);
 
-        Task UpdateProperty(Property property);
+        Task UpdateProperty(UpdatePropertyDtos updatePropertyDtos);
 
         Task<Property> GetProperty(int id);
 

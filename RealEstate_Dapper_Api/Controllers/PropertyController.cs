@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Abstract;
+using DataTransferObjectLayer.Dtos.PropertyDtos;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,9 +38,9 @@ namespace RealEstate_Dapper_Api.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateProperty(Property property)
+        public async Task<IActionResult> UpdateProperty(UpdatePropertyDtos updatePropertyDtos)
         {
-            await _propertyDal.UpdateProperty(property);
+            await _propertyDal.UpdateProperty(updatePropertyDtos);
             return Ok("Kayıt başarılı bir şekilde güncellendi.");
         }
 

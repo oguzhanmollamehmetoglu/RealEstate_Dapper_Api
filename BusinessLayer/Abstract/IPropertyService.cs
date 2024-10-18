@@ -11,7 +11,7 @@ namespace BusinessLayer.Abstract
 
         Task TDeleteProperty(int id);
 
-        Task TUpdateProperty(Property property);
+        Task TUpdateProperty(UpdatePropertyDtos updatePropertyDtos);
 
         Task<Property> TGetProperty(int id);
 

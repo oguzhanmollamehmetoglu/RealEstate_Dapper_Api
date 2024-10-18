@@ -109,9 +109,9 @@ namespace BusinessLayer.Concrete
             await _propertyDal.PropertyStatusChangeToTrue(id);
         }
 
-        public async Task TUpdateProperty(Property property)
+        public async Task TUpdateProperty(UpdatePropertyDtos updatePropertyDtos)
         {
-            await _propertyDal.UpdateProperty(property);
+            await _propertyDal.UpdateProperty(updatePropertyDtos);
         }
     }
 }

@@ -239,26 +239,26 @@ namespace DataAccessLayer.Repository
             }
         }
 
-        public async Task UpdateProperty(Property property)
+        public async Task UpdateProperty(UpdatePropertyDtos updatePropertyDtos)
         {
             string query = "Update Property Set Title=@title,SlugUrl=@slugUrl,Price=@price,City=@city,District=@district,Coverİmage=@coverİmage,Address=@address,Description=@description,Type=@type,DealOfTheDay=@dealOfTheDay,AdvertisementDate=@advertisementDate,PropertyStatus=@propertyStatus,AdvertPropertyStatus=@advertPropertyStatus,PropertyCategory=@propertyCategory,AppUserID=@appUserID where PropertyID=@propertyID";
             var parameters = new DynamicParameters();
-            parameters.Add("@title", property.Title);
-            parameters.Add("@slugUrl", property.SlugUrl);
-            parameters.Add("@price", property.Price);
-            parameters.Add("@city", property.City);
-            parameters.Add("@district", property.District);
-            parameters.Add("@coverİmage", property.Coverİmage);
-            parameters.Add("@address", property.Address);
-            parameters.Add("@description", property.Description);
-            parameters.Add("@type", property.Type);
-            parameters.Add("@dealOfTheDay", property.DealOfTheDay);
-            parameters.Add("@advertisementDate", property.AdvertisementDate);
-            parameters.Add("@propertyStatus", property.PropertyStatus);
-            parameters.Add("@advertPropertyStatus", property.AdvertPropertyStatus);
-            parameters.Add("@propertyCategory", property.PropertyCategory);
-            parameters.Add("@appUserID", property.AppUserID);
-            parameters.Add("@propertyID", property.PropertyID);
+            parameters.Add("@title", updatePropertyDtos.Title);
+            parameters.Add("@slugUrl", updatePropertyDtos.SlugUrl);
+            parameters.Add("@price", updatePropertyDtos.Price);
+            parameters.Add("@city", updatePropertyDtos.City);
+            parameters.Add("@district", updatePropertyDtos.District);
+            parameters.Add("@coverİmage", updatePropertyDtos.Coverİmage);
+            parameters.Add("@address", updatePropertyDtos.Address);
+            parameters.Add("@description", updatePropertyDtos.Description);
+            parameters.Add("@type", updatePropertyDtos.Type);
+            parameters.Add("@dealOfTheDay", updatePropertyDtos.DealOfTheDay);
+            parameters.Add("@advertisementDate", updatePropertyDtos.AdvertisementDate);
+            parameters.Add("@propertyStatus", updatePropertyDtos.PropertyStatus);
+            parameters.Add("@advertPropertyStatus", updatePropertyDtos.AdvertPropertyStatus);
+            parameters.Add("@propertyCategory", updatePropertyDtos.PropertyCategory);
+            parameters.Add("@appUserID", updatePropertyDtos.AppUserID);
+            parameters.Add("@propertyID", updatePropertyDtos.PropertyID);
             using (var connection = _context.CreateConnection())
             {
                 await connection.ExecuteAsync(query, parameters);
