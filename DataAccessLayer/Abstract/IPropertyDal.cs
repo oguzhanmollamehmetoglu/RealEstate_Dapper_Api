@@ -23,9 +23,9 @@ namespace DataAccessLayer.Abstract
 
         Task<List<Property>> GetResultPropertyWithCategoryAsync();
 
-        Task<List<Property>> GetResultPropertyWithCategoryStatusByTrueAsync();
+        Task<List<ResultPropertyDtos>> GetResultPropertyWithCategoryStatusByTrueAsync();
 
-        Task<List<Property>> GetPropertyByDealOfTheDayTrueWithCategoryAsync();
+        Task<List<ResultPropertyDtos>> GetPropertyByDealOfTheDayTrueWithCategoryAsync();
 
         Task<List<Property>> GetPropertyWithSearchListAsync(string searchKeyValue, int propertyCategoryId, string city);
 

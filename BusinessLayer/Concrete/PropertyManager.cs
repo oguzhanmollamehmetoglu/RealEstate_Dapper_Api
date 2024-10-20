@@ -64,7 +64,7 @@ namespace BusinessLayer.Concrete
             return await _propertyDal.GetPropertyAdvertListByAppUserAsyncByTrue(id);
         }
 
-        public async Task<List<Property>> TGetPropertyByDealOfTheDayTrueWithCategoryAsync()
+        public async Task<List<ResultPropertyDtos>> TGetPropertyByDealOfTheDayTrueWithCategoryAsync()
         {
             return await _propertyDal.GetPropertyByDealOfTheDayTrueWithCategoryAsync();
         }
@@ -84,7 +84,7 @@ namespace BusinessLayer.Concrete
             return await _propertyDal.GetResultPropertyWithCategoryAsync();
         }
 
-        public async Task<List<Property>> TGetResultPropertyWithCategoryStatusByTrueAsync()
+        public async Task<List<ResultPropertyDtos>> TGetResultPropertyWithCategoryStatusByTrueAsync()
         {
             return await _propertyDal.GetResultPropertyWithCategoryStatusByTrueAsync();
         }

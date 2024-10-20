@@ -28,7 +28,7 @@ namespace DataAccessLayer.Repository
 
         public async Task CreateProperty(Property property)
         {
-            string query = "insert into Property(Title,SlugUrl,Price,City,District,Coverİmage,Address,Description,Type,DealOfTheDay,AdvertisementDate,PropertyStatus,PropertyCategory,AppUserID) values(@title,@slugUrl,@price,@city,@district,@coverİmage,@address,@description,@type,@dealOfTheDay,@advertisementDate,@propertyStatus,@propertyCategory,@appUserID)";
+            string query = "insert into Property(Title,SlugUrl,Price,City,District,Coverİmage,Address,Description,Type,DealOfTheDay,AdvertisementDate,PropertyStatus,PropertyCategory,AppUserID,AdvertPropertyStatus) values(@title,@slugUrl,@price,@city,@district,@coverİmage,@address,@description,@type,@dealOfTheDay,@advertisementDate,@propertyStatus,@propertyCategory,@appUserID,@advertPropertyStatus)";
             var parameters = new DynamicParameters();
             parameters.Add("@title", property.Title);
             parameters.Add("@slugUrl", property.SlugUrl);
@@ -44,6 +44,7 @@ namespace DataAccessLayer.Repository
             parameters.Add("@propertyStatus", property.PropertyStatus);
             parameters.Add("@propertyCategory", property.PropertyCategory);
             parameters.Add("@appUserID", property.AppUserID);
+            parameters.Add("@advertPropertyStatus", property.AdvertPropertyStatus);
             using (var connection = _context.CreateConnection())
             {
                 await connection.ExecuteAsync(query, parameters);
@@ -139,12 +140,12 @@ namespace DataAccessLayer.Repository
             }
         }
 
-        public async Task<List<Property>> GetPropertyByDealOfTheDayTrueWithCategoryAsync()
+        public async Task<List<ResultPropertyDtos>> GetPropertyByDealOfTheDayTrueWithCategoryAsync()
         {
             string query = "Select PropertyID,Title,Price,City,District,Type,Coverİmage,Address,CategoryName,DealOfTheDay,SlugUrl From Property inner join Category on Property.PropertyCategory=Category.CategoryID where DealOfTheDay=1 ";
             using (var connection = _context.CreateConnection())
             {
-                var values = await connection.QueryAsync<Property>(query);
+                var values = await connection.QueryAsync<ResultPropertyDtos>(query);
                 return values.ToList();
             }
         }
@@ -185,12 +186,12 @@ namespace DataAccessLayer.Repository
             }
         }
 
-        public async Task<List<Property>> GetResultPropertyWithCategoryStatusByTrueAsync()
+        public async Task<List<ResultPropertyDtos>> GetResultPropertyWithCategoryStatusByTrueAsync()
         {
             string query = "SELECT p.PropertyID, p.Title, p.Price, p.City, p.District, p.Type, p.Coverİmage, p.Address, c.CategoryName, p.AppUserID, p.DealOfTheDay, p.SlugUrl, p.PropertyStatus FROM Property p INNER JOIN Category c ON p.PropertyCategory = c.CategoryID Where PropertyStatus=1";
             using (var connection = _context.CreateConnection())
             {
-                var values = await connection.QueryAsync<Property>(query);
+                var values = await connection.QueryAsync<ResultPropertyDtos>(query);
                 return values.ToList();
             }
         }

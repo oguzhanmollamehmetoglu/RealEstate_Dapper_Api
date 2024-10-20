@@ -31,6 +31,5 @@
         public bool PropertyStatus { get; set; }
 
         public bool AdvertPropertyStatus { get; set; }
-
     }
 }

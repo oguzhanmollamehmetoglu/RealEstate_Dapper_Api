@@ -24,8 +24,6 @@
 
         public int PropertyCategory { get; set; }
 
-        public string CategoryName { get; set; }
-
         public int AppUserID { get; set; }
 
         public DateTime AdvertisementDate { get; set; }

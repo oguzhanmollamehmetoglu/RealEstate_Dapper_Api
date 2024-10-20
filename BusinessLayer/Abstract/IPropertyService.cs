@@ -23,9 +23,9 @@ namespace BusinessLayer.Abstract
 
         Task<List<Property>> TGetResultPropertyWithCategoryAsync();
 
-        Task<List<Property>> TGetResultPropertyWithCategoryStatusByTrueAsync();
+        Task<List<ResultPropertyDtos>> TGetResultPropertyWithCategoryStatusByTrueAsync();
 
-        Task<List<Property>> TGetPropertyByDealOfTheDayTrueWithCategoryAsync();
+        Task<List<ResultPropertyDtos>> TGetPropertyByDealOfTheDayTrueWithCategoryAsync();
 
         Task<List<Property>> TGetPropertyWithSearchListAsync(string searchKeyValue, int propertyCategoryId, string city);
 
