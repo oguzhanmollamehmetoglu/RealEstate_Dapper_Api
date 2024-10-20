@@ -21,7 +21,7 @@ namespace DataAccessLayer.Abstract
 
         Task<List<Property>> GetPropertyAdvertListByAppUserAsyncByStatusFalse(int id);
 
-        Task<List<Property>> GetResultPropertyWithCategoryAsync();
+        Task<List<ResultPropertyDtos>> GetResultPropertyWithCategoryAsync();
 
         Task<List<ResultPropertyDtos>> GetResultPropertyWithCategoryStatusByTrueAsync();
 

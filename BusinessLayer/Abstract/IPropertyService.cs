@@ -21,7 +21,7 @@ namespace BusinessLayer.Abstract
 
         Task<List<Property>> TGetPropertyAdvertListByAppUserAsyncByStatusFalse(int id);
 
-        Task<List<Property>> TGetResultPropertyWithCategoryAsync();
+        Task<List<ResultPropertyDtos>> TGetResultPropertyWithCategoryAsync();
 
         Task<List<ResultPropertyDtos>> TGetResultPropertyWithCategoryStatusByTrueAsync();
 

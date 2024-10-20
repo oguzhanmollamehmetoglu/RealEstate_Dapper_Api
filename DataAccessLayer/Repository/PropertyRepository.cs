@@ -176,12 +176,12 @@ namespace DataAccessLayer.Repository
             }
         }
 
-        public async Task<List<Property>> GetResultPropertyWithCategoryAsync()
+        public async Task<List<ResultPropertyDtos>> GetResultPropertyWithCategoryAsync()
         {
-            string query = "SELECT p.PropertyID, p.Title, p.Price, p.City, p.District, p.Type, p.Coverİmage, p.Address, c.CategoryName, p.DealOfTheDay, p.SlugUrl, p.PropertyStatus FROM Property p INNER JOIN Category c ON p.PropertyCategory = c.CategoryID";
+            string query = "SELECT p.PropertyID, p.Title, p.Price, p.City, p.District, p.SlugUrl, p.Coverİmage, p.Address, p.Description, p.Type, p.PropertyCategory, c.CategoryName, p.AppUserID, p.AdvertisementDate, p.DealOfTheDay, p.PropertyStatus ,p.AdvertPropertyStatus FROM Property p INNER JOIN Category c ON p.PropertyCategory = c.CategoryID";
             using (var connection = _context.CreateConnection())
             {
-                var values = await connection.QueryAsync<Property>(query);
+                var values = await connection.QueryAsync<ResultPropertyDtos>(query);
                 return values.ToList();
             }
         }

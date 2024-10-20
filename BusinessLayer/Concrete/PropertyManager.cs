@@ -79,7 +79,7 @@ namespace BusinessLayer.Concrete
             return await _propertyDal.GetPropertyWithSearchListAsync(searchKeyValue,propertyCategoryId,city);
         }
 
-        public async Task<List<Property>> TGetResultPropertyWithCategoryAsync()
+        public async Task<List<ResultPropertyDtos>> TGetResultPropertyWithCategoryAsync()
         {
             return await _propertyDal.GetResultPropertyWithCategoryAsync();
         }
