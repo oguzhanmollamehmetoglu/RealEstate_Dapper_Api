@@ -1,7 +1,7 @@
 ﻿
 namespace DataTransferObjectLayer.Dtos.PropertyAmenityDtos
 {
-    public class GetPropertyAmenityByPropertyId
+    public class GetPropertyAmenityByPropertyIdDto
     {
         public int PropertyAmenityID { get; set; }
         public int PropertyID { get; set; }

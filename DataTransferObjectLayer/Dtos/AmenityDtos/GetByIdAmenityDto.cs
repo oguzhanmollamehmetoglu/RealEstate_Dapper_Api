@@ -1,6 +1,7 @@
-﻿namespace DataTransferObjectLayer.Dtos.AmenityDtos
+﻿
+namespace DataTransferObjectLayer.Dtos.AmenityDtos
 {
-    public class AmenityDto
+    public class GetByIdAmenityDto
     {
         public int AmenityID { get; set; }
 
